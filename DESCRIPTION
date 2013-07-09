@@ -6,8 +6,11 @@ Author: Tomas Greif
 Maintainer: Tomas Greif <greif.tomas@gmail.com>
 Depends:
     R (>= 3.0.1)
-License: GPL2
+License: GPL-2
 LazyData: true
 Collate:
     'riv-package.r'
     'iv.str.R'
+    'german_data.R'
+    'iv.str.mult.R'
+    'iv.str.replace.woe.R'
