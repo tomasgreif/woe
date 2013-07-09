@@ -2,7 +2,12 @@ Package: riv
 Title: 
 Description: 
 Version: 0.1
-Authors@R: # getOptions('devtools.desc.author')
-Depends: R (>= 3.0.1)
-License: # getOptions('devtools.desc.license')
+Author: Tomas Greif
+Maintainer: Tomas Greif <greif.tomas@gmail.com>
+Depends:
+    R (>= 3.0.1)
+License: GPL2
 LazyData: true
+Collate:
+    'riv-package.r'
+    'iv.str.R'
