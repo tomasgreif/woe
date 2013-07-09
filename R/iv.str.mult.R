@@ -14,6 +14,9 @@
 #' iv.str.mult(german_data,"gbbin",vars=c("ca_status","housing","job"))
 
 iv.str.mult <- function(df,y,summary=F,vars=NULL) {
+
+  require(plyr)
+  
   if(is.null(vars)) {
     char_col_bol <- sapply(names(df),function (x) is.character(df[,x]))
     char_col_list <- c(names(char_col_bol[which(char_col_bol==TRUE)]))    
