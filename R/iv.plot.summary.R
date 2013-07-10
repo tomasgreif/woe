@@ -12,7 +12,7 @@ iv.plot.summary <- function(iv) {
   fills <- rev(brewer.pal(6, 'Blues'))
   
   ggplot(data=iv)+
-    geom_bar(aes(x=reorder(iv$Variable,iv$InformationValue),y=iv$InformationValue,fill=iv$Strength), stat="identity") + 
+    geom_bar(aes(x=reorder(Variable,InformationValue),y=InformationValue,fill=Strength), stat="identity") + 
     coord_flip() +
     scale_fill_manual(values=fills) +
     theme(
