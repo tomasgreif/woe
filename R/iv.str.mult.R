@@ -4,7 +4,8 @@
 #'
 #' @param df data frame with at least two columns
 #' @param y column (integer) with binary outcome
-#' @param summary Only total information value for variable is returned when summary is TRUE
+#' @param summary Only total information value for variable is returned when summary is TRUE. Output is sorted by
+#' information value, starting with highest value.
 #' @param vars List of variables. If not specified, all character variables will be used
 #' @export
 #' @examples
@@ -31,6 +32,8 @@ iv.str.mult <- function(df,y,summary=F,vars=NULL) {
   } else {
     ivlist <- rbind.fill(ivlist)
     ivlist <- aggregate(ivlist$miv, by=list(Category=ivlist$variable), FUN=sum)    
+    ivlist <- ivlist[with(ivlist,order(-x)), ]
   }
   ivlist
 }
+

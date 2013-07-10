@@ -1,6 +1,7 @@
 Package: riv
-Title: 
-Description: 
+Title: Tools to calculate Information Value.
+Description: Calculate WOE (Weight of Evidence) and IV (Information Value) for
+    variable. Transform raw variables to WOE.
 Version: 0.1
 Author: Tomas Greif
 Maintainer: Tomas Greif <greif.tomas@gmail.com>
@@ -14,3 +15,4 @@ Collate:
     'german_data.R'
     'iv.str.mult.R'
     'iv.str.replace.woe.R'
+    'iv.str.plots.R'

@@ -10,7 +10,8 @@
   \item{y}{column (integer) with binary outcome}
 
   \item{summary}{Only total information value for variable
-  is returned when summary is TRUE}
+  is returned when summary is TRUE. Output is sorted by
+  information value, starting with highest value.}
 
   \item{vars}{List of variables. If not specified, all
   character variables will be used}
