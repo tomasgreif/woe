@@ -15,7 +15,7 @@
 
 iv.str.replace <- function(df,iv) {
 
-require(sqldf)
+# require(sqldf)
 
 iv_df <- rbind.fill(iv)
 

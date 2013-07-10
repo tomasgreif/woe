@@ -18,5 +18,6 @@
 }
 \examples{
 iv.str(german_data,"purpose","gbbin")
+iv.str(german_data,"savings","gbbin")
 }
 

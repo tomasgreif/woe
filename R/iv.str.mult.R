@@ -16,7 +16,7 @@
 
 iv.str.mult <- function(df,y,summary=F,vars=NULL) {
 
-  require(plyr)
+ # require(plyr)
   
   if(is.null(vars)) {
     char_col_bol <- sapply(names(df),function (x) is.character(df[,x]))
@@ -33,6 +33,16 @@ iv.str.mult <- function(df,y,summary=F,vars=NULL) {
     ivlist <- rbind.fill(ivlist)
     ivlist <- aggregate(ivlist$miv, by=list(Category=ivlist$variable), FUN=sum)    
     ivlist <- ivlist[with(ivlist,order(-x)), ]
+
+    ivlist$Strength[ivlist$x >= 1] <- 1
+    ivlist$Strength[ivlist$x > .5 & ivlist$x < 1] <- 2
+    ivlist$Strength[ivlist$x > .2 & ivlist$x < .5] <- 3
+    ivlist$Strength[ivlist$x > .1 & ivlist$x < .2] <- 4
+    ivlist$Strength[ivlist$x > .02 & ivlist$x < .1] <- 5
+    ivlist$Strength[ivlist$x <= .02] <- 6
+    ivlist$Strength <- as.factor(ivlist$Strength)
+    levels(ivlist$Strength) <- c("Suspicious","Very strong","Strong","Average","Weak")
+    names(ivlist) <- c("Variable","InformationValue","Strength")
   }
   ivlist
 }

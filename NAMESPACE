@@ -1,3 +1,4 @@
+export(iv.plot.summary)
 export(iv.str)
 export(iv.str.mult)
 export(iv.str.replace)

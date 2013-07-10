@@ -8,6 +8,8 @@
 #' @export
 #' @examples
 #' iv.str(german_data,"purpose","gbbin")
+#' iv.str(german_data,"savings","gbbin")
+
 iv.str <- function(df,x,y) {
 
   if (!is.character(df[, x])) {
