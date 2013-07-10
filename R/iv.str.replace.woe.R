@@ -7,13 +7,13 @@
 #' @export
 #' @examples
 #' outiv <- iv.str.mult(german_data,"gbbin",vars=c("ca_status","housing","job"))
-#' x <- iv.str.replace(german_data,outiv)
+#' x <- iv.str.replace.woe(german_data,outiv)
 #' str(x)
 #' outiv <- iv.str.mult(german_data,"gbbin")
-#' x <- iv.str.replace(german_data,outiv)
+#' x <- iv.str.replace.woe(german_data,outiv)
 #' str(x)
 
-iv.str.replace <- function(df,iv) {
+iv.str.replace.woe <- function(df,iv) {
 
 # require(sqldf)
 
