@@ -24,10 +24,9 @@ iv_df <- rbind.fill(iv)
    variable_name_woe <- paste(variable_name,"_woe",sep="")
    # print(paste0("Var Name: ",variable_name))
    # print(paste0("WOE Name: ",variable_name_woe))
-   df[variable_name_woe] <- 1
-   sqlstr <-  paste("select il.woe as ", variable_name_woe ," from df as gd join iv_df as il on (gd.", variable_name ," = il.class and il.variable ='",variable_name,"')",sep="")
+   sqlstr <-  paste("select gd.*, il.woe as ", variable_name_woe ," from df as gd join iv_df as il on (gd.", variable_name ," = il.class and il.variable ='",variable_name,"')",sep="")
    # print(sqlstr)
-   df[variable_name_woe] <- sqldf(sqlstr,drv="SQLite")
+   df <- sqldf(sqlstr,drv="SQLite")
  }
     df
 }
