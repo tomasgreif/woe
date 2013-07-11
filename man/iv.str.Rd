@@ -1,20 +1,25 @@
 \name{iv.str}
 \alias{iv.str}
-\title{Calculate Information Value for character vectors}
+\title{Calculate Information Value for character or factor columns}
 \usage{
   iv.str(df, x, y)
 }
 \arguments{
-  \item{df}{data frame with at least two columns}
+  \item{df}{data frame with at least two columns (predictor
+  x and outcome y)}
 
-  \item{x}{column (character) for which Information Value
-  should be calculated}
+  \item{x}{column (character or factor) for which
+  Information Value should be calculated}
 
-  \item{y}{column (integer) with binary outcome}
+  \item{y}{column (integer) with binary outcome. y has to
+  be a column in df data frame. y has to be numeric
+  (integer or double) with values 0 and 1. It is
+  recommended that 1 is used for predicted event and 0
+  otherwise.}
 }
 \description{
-  This function calculates Information Value for character
-  vectors
+  This function calculates information value for character
+  or factor columns of data frame.
 }
 \examples{
 iv.str(german_data,"purpose","gbbin")

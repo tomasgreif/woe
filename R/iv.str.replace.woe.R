@@ -1,4 +1,4 @@
-#' Replace values with infofrmation value
+#' Replace values with information value
 #'
 #' Calculates information value for all character vectors in given data frame
 #'

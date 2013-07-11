@@ -10,13 +10,15 @@ Depends:
     ggplot2,
     sqldf,
     plyr,
-    RColorBrewer
+    RColorBrewer,
+    rpart
 License: GPL-2
 LazyData: true
 Collate:
     'riv-package.r'
-    'iv.str.R'
     'german_data.R'
     'iv.str.mult.R'
     'iv.str.replace.woe.R'
     'iv.plot.summary.R'
+    'iv.str.r'
+    'iv.num.r'
