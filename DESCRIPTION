@@ -17,8 +17,9 @@ LazyData: true
 Collate:
     'riv-package.r'
     'german_data.R'
-    'iv.str.mult.R'
     'iv.str.replace.woe.R'
     'iv.plot.summary.R'
     'iv.str.r'
     'iv.num.r'
+    'iv.mult.r'
+    'iv.parse.rpart.rule.r'

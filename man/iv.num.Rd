@@ -13,10 +13,11 @@
   \item{y}{column (integer) with binary outcome}
 }
 \description{
-  This function calculates Information Value for numeric
+  This function calculates information value for numeric
   vectors. This is done using decision tree.
 }
 \examples{
 iv.num(german_data,"mob","gbbin")
+iv.num(german_data,"age","gbbin")
 }
 
