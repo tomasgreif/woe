@@ -37,18 +37,20 @@ iv.mult <- function(df,y,summary=F,vars=NULL) {
   
   if (summary) {
     ivlist <- rbind.fill(ivlist)
-    ivlist <- aggregate(ivlist$miv, by=list(Category=ivlist$variable), FUN=sum)    
-    ivlist <- ivlist[with(ivlist,order(-x)), ]
+    ivlist <- aggregate(x=ivlist$miv, by=list(Category=ivlist$variable), FUN=function(x) c(round(sum(x),2),length(x)))
+    ivlist <- do.call(data.frame, ivlist)
+    ivlist <- ivlist[with(ivlist,order(-x.1)), ]
     
-    ivlist$Strength[ivlist$x >= 1] <- 1
-    ivlist$Strength[ivlist$x > .5 & ivlist$x < 1] <- 2
-    ivlist$Strength[ivlist$x > .2 & ivlist$x < .5] <- 3
-    ivlist$Strength[ivlist$x > .1 & ivlist$x < .2] <- 4
-    ivlist$Strength[ivlist$x > .02 & ivlist$x < .1] <- 5
-    ivlist$Strength[ivlist$x <= .02] <- 6
+    ivlist$Strength[ivlist$x.1 >= 1] <- 1
+    ivlist$Strength[ivlist$x.1 >= .5 & ivlist$x.1 < 1] <- 2
+    ivlist$Strength[ivlist$x.1 >= .2 & ivlist$x.1 < .5] <- 3
+    ivlist$Strength[ivlist$x.1 >= .1 & ivlist$x.1 < .2] <- 4
+    ivlist$Strength[ivlist$x.1 >= .02 & ivlist$x.1 < .1] <- 5
+    ivlist$Strength[ivlist$x.1 < .02] <- 6
     ivlist$Strength <- factor(ivlist$Strength, levels=c(1,2,3,4,5,6), 
                               labels= c("Suspicious","Very strong","Strong","Average","Weak","Wery weak"))
-    names(ivlist) <- c("Variable","InformationValue","Strength")
+    names(ivlist) <- c("Variable","InformationValue","Bins","Strength")
   }
   ivlist
 }
+
