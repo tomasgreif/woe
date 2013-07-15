@@ -11,9 +11,7 @@
 
 iv.num <- function(df,x,y) {
 
-#df=german_data
-#x="mob"
-#y="gbbin"
+  print(paste(x, ": ",length(unique(df[,x]))))
 
   model   <- rpart(data=df,formula=df[,y]~df[,x],control=rpart.control(cp=0.001,minbucket=nrow(df)/10))
   model_where <- data.frame(node_id=model$where,obs_id=as.numeric(names(model$where)),stringsAsFactors=F) # str(model_where)
