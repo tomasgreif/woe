@@ -4,11 +4,12 @@
 #'
 #' @param iv Information values summary for variables - output from iv.str.mult with summary=T
 #' @export
+#' @examples
+#' iv.plot.summary(iv.mult(german_data,"gbbin",T))
+#' iv.plot.summary(iv.mult(german_data,"gbbin",vars=c("ca_status","housing","job","mob"),summary=T))
 
 iv.plot.summary <- function(iv) {
 
-#  require(ggplot2)
-#  require(RColorBrewer)
   fills <- rev(brewer.pal(6, 'Blues'))
   
   ggplot(data=iv)+
@@ -25,7 +26,5 @@ iv.plot.summary <- function(iv) {
       ) +
      xlab("Variable") +
      ylab("Information Value") +
-     ggtitle("Information Value Summary")  
- 
+     ggtitle("Information Value Summary")   
 }
-
