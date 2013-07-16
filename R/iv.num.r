@@ -11,9 +11,7 @@
 
 iv.num <- function(df,x,y) {
 
-  print(paste(x, ": ",length(unique(df[,x]))))
-
-  model   <- rpart(data=df,formula=df[,y]~df[,x],control=rpart.control(cp=0.001,minbucket=nrow(df)/10))
+  model   <- rpart(data=df,formula=as.integer(df[,y])~df[,x],control=rpart.control(cp=0.001,minbucket=nrow(df)/10))
   model_where <- data.frame(node_id=model$where,obs_id=as.numeric(names(model$where)),stringsAsFactors=F) # str(model_where)
   model_frame <- data.frame(model$frame,tree_node=rownames(model$frame),node_id=row(model$frame["var"]))
   
