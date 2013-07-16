@@ -18,7 +18,13 @@
 }
 \description{
   Calculates information value for defined columns in given
-  data frame. Columns can have numeric or character type.
+  data frame. Columns can have numeric or character type
+  (including factors).
+}
+\details{
+  Information Value (IV) is concept used in risk management
+  to assess predictive power of variable. IV is defined as:
+  WoE (Weight of Evidence) is defined as:
 }
 \examples{
 iv.mult(german_data,"gbbin")

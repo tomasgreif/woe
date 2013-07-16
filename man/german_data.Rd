@@ -18,7 +18,8 @@
   present_residence_since \item property \item age \item
   other_installment \item housing \item existing_credits
   \item job \item liable_maintenance_people \item telephone
-  \item foreign_worker \item gb \item gbbin }
+  \item foreign_worker \item gb (factor) \item gbbin
+  (integer) }
 }
 \keyword{datasets}
 

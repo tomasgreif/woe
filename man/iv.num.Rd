@@ -10,7 +10,7 @@
   \item{x}{column (character) for which Information Value
   should be calculated}
 
-  \item{y}{column (integer) with binary outcome}
+  \item{y}{column (integer/factor) with binary outcome}
 }
 \description{
   This function calculates information value for numeric

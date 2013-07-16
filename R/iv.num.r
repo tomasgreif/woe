@@ -4,14 +4,14 @@
 #'
 #' @param df data frame with at least two columns
 #' @param x column (character) for which Information Value should be calculated
-#' @param y column (integer) with binary outcome
+#' @param y column (integer/factor) with binary outcome
 #' @examples
 #' iv.num(german_data,"mob","gbbin")
 #' iv.num(german_data,"age","gbbin")
 
 iv.num <- function(df,x,y) {
 
-  model   <- rpart(data=df,formula=as.integer(df[,y])~df[,x],control=rpart.control(cp=0.001,minbucket=nrow(df)/10))
+  model   <- rpart(data=df,formula=as.integer(df[,y])~df[,x],control=rpart.control(cp=0.001,minbucket=nrow(df)/100))
   model_where <- data.frame(node_id=model$where,obs_id=as.numeric(names(model$where)),stringsAsFactors=F) # str(model_where)
   model_frame <- data.frame(model$frame,tree_node=rownames(model$frame),node_id=row(model$frame["var"]))
   

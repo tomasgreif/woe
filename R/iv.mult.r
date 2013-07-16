@@ -1,7 +1,9 @@
 #' Calculate Information Value for defined columns in data frame
 #'
-#' Calculates information value for defined columns in given data frame. Columns can have numeric or character type.
-#'
+#' Calculates information value for defined columns in given data frame. Columns can have numeric or character type (including factors).
+#' @details Information Value (IV) is concept used in risk management to assess predictive power of variable.
+#' IV is defined as:
+#' WoE (Weight of Evidence) is defined as:
 #' @param df data frame with at least two columns
 #' @param y column (integer) with binary outcome
 #' @param summary Only total information value for variable is returned when summary is TRUE. Output is sorted by
@@ -37,7 +39,10 @@ iv.mult <- function(df,y,summary=F,vars=NULL) {
   
   if (summary) {
     ivlist <- rbind.fill(ivlist)
-    ivlist <- aggregate(x=ivlist$miv, by=list(Category=ivlist$variable), FUN=function(x) c(round(sum(x),2),length(x)))
+    ivlist <- aggregate(x=ivlist$miv, by=list(Category=ivlist$variable), FUN=function(x) c(
+      round(sum(x),2),
+      length(x),
+      sum(ifelse(is.infinite(x),1,0))))
     ivlist <- do.call(data.frame, ivlist)
     ivlist <- ivlist[with(ivlist,order(-x.1)), ]
     
@@ -49,7 +54,7 @@ iv.mult <- function(df,y,summary=F,vars=NULL) {
     ivlist$Strength[ivlist$x.1 < .02] <- 6
     ivlist$Strength <- factor(ivlist$Strength, levels=c(1,2,3,4,5,6), 
                               labels= c("Suspicious","Very strong","Strong","Average","Weak","Wery weak"))
-    names(ivlist) <- c("Variable","InformationValue","Bins","Strength")
+    names(ivlist) <- c("Variable","InformationValue","Bins","Zero Bins","Strength")
   }
   ivlist
 }

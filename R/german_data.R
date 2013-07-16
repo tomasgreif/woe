@@ -24,8 +24,8 @@
 #'   \item liable_maintenance_people
 #'   \item telephone
 #'   \item foreign_worker
-#'   \item gb
-#'   \item gbbin
+#'   \item gb (factor)
+#'   \item gbbin (integer)
 #' }
 #' 
 #' @docType data

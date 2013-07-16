@@ -36,11 +36,11 @@ iv.str <- function(df,x,y) {
   total_1 <- ifelse(is.numeric(df[, y]), sum(df[, y]), sum(as.integer(df[, y])-1))
   total_0 <- nrow(df) - total_1
   
-  if(any(iv_data$outcome_0 == 0)) {
-    warning("Some group for outcome 0 has zero count. This will result in -Inf or Inf WOE.")
-  } else if (any(iv_data$outcome_1 == 0)) {
-    warning("Some group for outcome 1 has zero count. This will result in -Inf or Inf WOE.")
-  }
+  #if(any(iv_data$outcome_0 == 0)) {
+  #  warning("Some group for outcome 0 has zero count. This will result in -Inf or Inf WOE.")
+  #} else if (any(iv_data$outcome_1 == 0)) {
+  #  warning("Some group for outcome 1 has zero count. This will result in -Inf or Inf WOE.")
+  #}
   
   iv_data$pct_1 <- iv_data$outcome_1 / total_1
   iv_data$pct_0 <- iv_data$outcome_0 / total_0
