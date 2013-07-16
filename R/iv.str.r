@@ -17,14 +17,15 @@ iv.str <- function(df,x,y) {
   if (!(is.character(df[, x]) || is.factor(df[, x]))) {
     stop("Input is not a character or factor!")
     } 
-  if (!(is.numeric(df[, y]))) {
+  if (!(is.numeric(df[, y]) || is.factor(df[, y]))) {
     stop("Outcome is not a number!")
   } 
   if (length(unique(df[, y])) != 2) {
     stop("Not a binary outcome")
     }
-  if (!all(sort(unique(df[, y])) == c(0,1))) {
-    stop("Outcome not encoded as 0 and 1.")
+  if (!(all(sort(unique(df[, y])) == c(0,1)) || all(sort(unique(as.integer(df[, y])) == c(1,2))))) {
+    ifelse(is.numeric(df[, y]), stop("Outcome not encoded as 0 and 1."), 
+           stop("Outcome not encoded as 1 and 2."))
   }
 
   iv_data <- data.frame(unclass(table(df[, x],df[, y])))
@@ -32,7 +33,7 @@ iv.str <- function(df,x,y) {
   iv_data$class <- row.names(iv_data)
   iv_data$variable <- x
   iv_data <- iv_data[c(4,3,1,2)]
-  total_1 <- sum(df[, y])
+  total_1 <- ifelse(is.numeric(df[, y]), sum(df[, y]), sum(as.integer(df[, y])-1))
   total_0 <- nrow(df) - total_1
   
   if(any(iv_data$outcome_0 == 0)) {
