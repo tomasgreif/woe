@@ -6,21 +6,24 @@
 #' @param x column (character or factor) for which Information Value should be calculated
 #' @param y column (integer) with binary outcome. y has to be a column in df data frame. y has to be numeric
 #' (integer or double) with values 0 and 1. It is recommended that 1 is used for predicted event and 0 otherwise.
+#' @param verbose Prints additional details when TRUE. Useful mainly for debugging.
+#' @export
 #' @examples
 #' iv.str(german_data,"purpose","gbbin")
 #' iv.str(german_data,"savings","gbbin")
 
-iv.str <- function(df,x,y) {
+iv.str <- function(df,x,y,verbose=FALSE) {
   if (!(class(df)=="data.frame")) {
     stop("Parameter df has to be a data frame.")
   } 
   if (!(is.character(df[, x]) || is.factor(df[, x]))) {
-    stop("Input is not a character or factor!")
+    stop(paste("Input is not a character or factor! Variable:", x))
     } 
   if (!(is.numeric(df[, y]) || is.factor(df[, y]))) {
     stop("Outcome is not a number!")
   } 
   if (length(unique(df[, y])) != 2) {
+    if(verbose) paste(cat(unique(df[,y])),"\n")
     stop("Not a binary outcome")
     }
   if (!(all(sort(unique(df[, y])) == c(0,1)) || all(sort(unique(as.integer(df[, y])) == c(1,2))))) {
