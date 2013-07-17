@@ -1,10 +1,17 @@
 \name{iv.gen.data}
 \alias{iv.gen.data}
-\title{Recreate sample datasets}
+\title{Create bigger dataset by replicating german data dataset}
 \usage{
-  iv.gen.data()
+  iv.gen.data(reps = 1)
+}
+\arguments{
+  \item{reps}{Number of replications}
 }
 \description{
-  Internal function used to simulate bigger datasets
+  Create bigger dataset by replicating german data dataset
+  N times
+}
+\examples{
+german_data_big <- iv.gen.data(reps=1)
 }
 
