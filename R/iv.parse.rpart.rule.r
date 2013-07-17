@@ -42,7 +42,7 @@ out_rule[i,"sql"] <- paste0("when ",
                               ifelse(is.na(out_rule$min[i]),"",paste(x,out_rule$min_comp[i],out_rule$min[i])),
                               ifelse (!is.na(out_rule$min[i]) && !is.na(out_rule$max[i])," AND ", ""),
                               ifelse(is.na(out_rule$max[i]),"",paste(x,out_rule$max_comp[i],out_rule$max[i])),
-                            " then '", out_rule$class_label[i], "'")
+                            " then ")
 out_rule[i,"tree_node"] <- names(rpart.rules)[i]
 }
 
