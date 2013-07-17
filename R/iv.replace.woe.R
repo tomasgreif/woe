@@ -8,15 +8,15 @@
 #' @export
 #' @examples
 #' outiv <- iv.mult(german_data,"gbbin",vars=c("ca_status","housing","mob"))
-#' x <- iv.str.replace.woe(german_data,outiv)
+#' x <- iv.replace.woe(german_data,outiv)
 #' str(x)
 #' outiv <- iv.mult(german_data,"gbbin")
-#' x <- iv.str.replace.woe(german_data,outiv)
+#' x <- iv.replace.woe(german_data,outiv)
 #' str(x)
 
-iv.str.replace.woe <- function(df,iv) {
+iv.replace.woe <- function(df,iv,verbose=FALSE) {
 
-iv_df <- rbind.fill(iv,verbose=FALSE)
+iv_df <- rbind.fill(iv)
 
  for (n in iv) { 
    variable_name <- n[1,1]
