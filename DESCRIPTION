@@ -23,3 +23,4 @@ Collate:
     'iv.num.r'
     'iv.mult.r'
     'iv.parse.rpart.rule.r'
+    'iv.gen.data.r'
