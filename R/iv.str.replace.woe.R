@@ -4,29 +4,41 @@
 #'
 #' @param df data frame with original data
 #' @param iv list of information values for variables - output from iv.str.mult
+#' @param verbose Prints additional details when TRUE. Useful mainly for debugging.
 #' @export
 #' @examples
-#' outiv <- iv.str.mult(german_data,"gbbin",vars=c("ca_status","housing","job"))
+#' outiv <- iv.mult(german_data,"gbbin",vars=c("ca_status","housing","mob"))
 #' x <- iv.str.replace.woe(german_data,outiv)
 #' str(x)
-#' outiv <- iv.str.mult(german_data,"gbbin")
+#' outiv <- iv.mult(german_data,"gbbin")
 #' x <- iv.str.replace.woe(german_data,outiv)
 #' str(x)
 
 iv.str.replace.woe <- function(df,iv) {
 
-# require(sqldf)
-
-iv_df <- rbind.fill(iv)
+iv_df <- rbind.fill(iv,verbose=FALSE)
 
  for (n in iv) { 
    variable_name <- n[1,1]
    variable_name_woe <- paste(variable_name,"_woe",sep="")
-   # print(paste0("Var Name: ",variable_name))
-   # print(paste0("WOE Name: ",variable_name_woe))
-   sqlstr <-  paste("select gd.*, il.woe as ", variable_name_woe ," from df as gd join iv_df as il on (gd.", variable_name ," = il.class and il.variable ='",variable_name,"')",sep="")
-   # print(sqlstr)
-   df <- sqldf(sqlstr,drv="SQLite")
+
+  if(verbose) {
+    cat(paste0("Var Name: ",variable_name,"\n"))
+    cat(paste0("WOE Name: ",variable_name_woe,"\n"))       
+  }
+ 
+   if(!("sql" %in% colnames(n)))
+   {
+     sqlstr <-  paste("select df.*, iv.woe as ", variable_name_woe ," from df join iv_df as iv on (df.", variable_name ," = iv.class and iv.variable ='",variable_name,"')",sep="")
+     df <- sqldf(sqlstr,drv="SQLite")
+   } else {
+     sqlstr_woe <- ifelse(paste(n$sql,collapse= " ")=="when  then 0.0","0",paste("case ",paste(n$sql,collapse= " "),"else 0 end"))
+     sqlstr <- paste("select df.*,",sqlstr_woe," as", variable_name_woe, "from df")
+     df <-sqldf(sqlstr,drv="SQLite")
+   }
+
  }
-    df
+   df
 }
+
+
