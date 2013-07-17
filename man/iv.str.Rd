@@ -2,7 +2,7 @@
 \alias{iv.str}
 \title{Calculate Information Value for character or factor columns}
 \usage{
-  iv.str(df, x, y)
+  iv.str(df, x, y, verbose = FALSE)
 }
 \arguments{
   \item{df}{data frame with at least two columns (predictor
@@ -16,6 +16,9 @@
   (integer or double) with values 0 and 1. It is
   recommended that 1 is used for predicted event and 0
   otherwise.}
+
+  \item{verbose}{Prints additional details when TRUE.
+  Useful mainly for debugging.}
 }
 \description{
   This function calculates information value for character

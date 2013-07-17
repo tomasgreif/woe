@@ -2,7 +2,8 @@
 \alias{iv.mult}
 \title{Calculate Information Value for defined columns in data frame}
 \usage{
-  iv.mult(df, y, summary = F, vars = NULL)
+  iv.mult(df, y, summary = FALSE, vars = NULL,
+    verbose = FALSE)
 }
 \arguments{
   \item{df}{data frame with at least two columns}
@@ -15,6 +16,9 @@
 
   \item{vars}{List of variables. If not specified, all
   character variables will be used}
+
+  \item{verbose}{Prints additional details when TRUE.
+  Useful mainly for debugging.}
 }
 \description{
   Calculates information value for defined columns in given
@@ -28,15 +32,9 @@
 }
 \examples{
 iv.mult(german_data,"gbbin")
-iv.mult(german_data,"gbbin",T)
-iv.mult(german_data,"gbbin",T,c("ca_status","housing","job","mob")) # str(german_data)
+iv.mult(german_data,"gbbin",TRUE)
+iv.mult(german_data,"gbbin",TRUE,c("ca_status","housing","job","mob")) # str(german_data)
 iv.mult(german_data,"gbbin",vars=c("ca_status","housing","job","mob","gb"))
-iv.mult(german_data,vars=c('ca_status','mob','credit_history','purpose',
-                           'credit_amount','savings','present_employment_since',
-                           'status_sex','installment_rate_income','other_debtors',
-                           'present_residence_since','property','age','other_installment',
-                           'housing','existing_credits','job','liable_maintenance_people',
-                           'telephone','foreign_worker'),
-                           "gbbin", summary=T)
+iv.mult(german_data,"gbbin",summary=TRUE, verbose=TRUE)
 }
 

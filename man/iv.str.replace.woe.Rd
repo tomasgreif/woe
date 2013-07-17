@@ -15,10 +15,10 @@
   given data frame
 }
 \examples{
-outiv <- iv.str.mult(german_data,"gbbin",vars=c("ca_status","housing","job"))
+outiv <- iv.mult(german_data,"gbbin",vars=c("ca_status","housing","job"))
 x <- iv.str.replace.woe(german_data,outiv)
 str(x)
-outiv <- iv.str.mult(german_data,"gbbin")
+outiv <- iv.mult(german_data,"gbbin")
 x <- iv.str.replace.woe(german_data,outiv)
 str(x)
 }

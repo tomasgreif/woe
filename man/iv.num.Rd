@@ -2,7 +2,7 @@
 \alias{iv.num}
 \title{Calculate Information Value for numeric (double/integer) vectors}
 \usage{
-  iv.num(df, x, y)
+  iv.num(df, x, y, verbose = FALSE)
 }
 \arguments{
   \item{df}{data frame with at least two columns}
@@ -11,6 +11,9 @@
   should be calculated}
 
   \item{y}{column (integer/factor) with binary outcome}
+
+  \item{verbose}{Prints additional details when TRUE.
+  Useful mainly for debugging.}
 }
 \description{
   This function calculates information value for numeric

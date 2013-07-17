@@ -6,13 +6,13 @@
 }
 \arguments{
   \item{iv}{Information values summary for variables -
-  output from iv.str.mult with summary=T}
+  output from iv.mult with summary=T}
 }
 \description{
   Plots calculated information values
 }
 \examples{
-iv.plot.summary(iv.mult(german_data,"gbbin",T))
-iv.plot.summary(iv.mult(german_data,"gbbin",vars=c("ca_status","housing","job","mob"),summary=T))
+iv.plot.summary(iv.mult(german_data,"gbbin",TRUE))
+iv.plot.summary(iv.mult(german_data,"gbbin",vars=c("ca_status","housing","job","mob"),summary=TRUE))
 }
 
