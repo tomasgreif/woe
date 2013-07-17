@@ -1,5 +1,7 @@
+export(iv.gen.data)
 export(iv.mult)
 export(iv.num)
 export(iv.plot.summary)
+export(iv.plot.woe)
+export(iv.replace.woe)
 export(iv.str)
-export(iv.str.replace.woe)
