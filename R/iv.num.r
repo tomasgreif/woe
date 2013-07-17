@@ -42,6 +42,6 @@ iv.num <- function(df,x,y,verbose=FALSE) {
 
   if(verbose) cat("  Formatting output",sep="\n")
   iv_data$variable <- x
-  sqldf("select iv.* from iv_data iv join tree_rules tr on (iv.class=tr.class_label) order by tr.min")
+  sqldf("select iv.*, tr.sql || woe as sql from iv_data iv join tree_rules tr on (iv.class=tr.class_label) order by tr.min")
 }
 
