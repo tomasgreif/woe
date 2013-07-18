@@ -12,3 +12,4 @@ iv.plot.woe(iv=iv.mult(german_data,"gbbin",vars=c("age","mob","ca_status")))
 iv.plot.woe(iv=iv.mult(german_data,"gbbin"))
 
 # Transform raw variables to WoE (creates new columns [original_column_name]_woe)
+str(iv.replace.woe(german_data,iv.mult(german_data,"gbbin")))
