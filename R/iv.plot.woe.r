@@ -11,7 +11,7 @@
 iv.plot.woe <- function(iv) {
   x <- rbind.fill(iv)
   ggplot(data=x) + geom_bar(aes(y=woe,x=class),stat="identity",position="identity") + 
-    facet_wrap(facet=~variable, scales="free_x")  +
+    facet_wrap(facets=t=~variable, scales="free_x")  +
     theme(
       panel.grid.major.x = element_blank(),
       panel.grid.major.y = element_line(linetype="dashed",colour="grey"),
