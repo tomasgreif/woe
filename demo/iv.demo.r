@@ -1,8 +1,3 @@
-#' riv demo
-#'
-#' Ilustrate basic usage
-#'
-#' @export
 
 # Get summary IV for data frame
 iv.mult(german_data,"gbbin",summary=TRUE)
