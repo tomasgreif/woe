@@ -47,9 +47,9 @@ iv.str <- function(df,x,y,verbose=FALSE) {
   
   iv_data$pct_1 <- iv_data$outcome_1 / total_1
   iv_data$pct_0 <- iv_data$outcome_0 / total_0
-  iv_data$odds <- iv_data$pct_1 / iv_data$pct_0
+  iv_data$odds <- iv_data$pct_0 / iv_data$pct_1
   iv_data$woe <- log(iv_data$odds)
-  iv_data$miv <- (iv_data$pct_1 - iv_data$pct_0) * iv_data$woe
+  iv_data$miv <- (iv_data$pct_0 - iv_data$pct_1) * iv_data$woe
   iv_data
 }
 
