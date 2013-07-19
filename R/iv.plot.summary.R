@@ -11,7 +11,7 @@
 iv.plot.summary <- function(iv) {
 
   fills <- rev(brewer.pal(6, 'Blues'))
-  
+  Variable<-InformationValue<-Strength<-NULL
   ggplot(data=iv)+
     geom_bar(aes(x=reorder(Variable,InformationValue),y=InformationValue,fill=Strength), stat="identity") + 
     coord_flip() +
