@@ -20,24 +20,33 @@ iv.str <- function(df,x,y,verbose=FALSE) {
     stop(paste("Input is not a character or factor! Variable:", x))
     } 
   if (!(is.numeric(df[, y]) || is.factor(df[, y]))) {
-    stop("Outcome is not a number!")
+    stop("Outcome is not a number nor factor!")
   } 
   if (length(unique(df[, y])) != 2) {
     if(verbose) paste(cat(unique(df[,y])),"\n")
     stop("Not a binary outcome")
     }
-  if (!(all(sort(unique(df[, y])) == c(0,1)) || all(sort(unique(as.integer(df[, y]))) == c(1,2)))) {
-    ifelse(is.numeric(df[, y]), stop("Outcome not encoded as 0 and 1."), 
-           stop("Outcome not encoded as 1 and 2."))
+  if (!(all(sort(unique(df[, y])) == c(0,1))) && is.numeric(df[,y])) {
+    stop("Numeric outcome has to be encoded as 0 (good) and 1 (bad). \n")
+  }
+  if (is.factor(df[,y]) && all(levels(df[,y])[order(levels(df[,y]))]==c("bad","good"))) {
+    if (verbose) cat("Assuming good = level 'good' and bad = level 'bad' \n")
+    total_1 <- sum(df[,y]=="bad")
+  } else if (is.factor(df[,y])) {
+    if (verbose) cat("Factor: Assuming bad = level 2 and good = level 1 \n")
+    total_1 <- sum(as.integer(df[, y])-1)
+  } else {
+    if (verbose) cat("Numeric: Assuming bad = 1 and good = 0 \n")
+    total_1 <-sum(df[, y])
+
   }
 
+  total_0 <- nrow(df) - total_1      
   iv_data <- data.frame(unclass(table(df[, x],df[, y])))
   names(iv_data) <- c("outcome_0","outcome_1")
   iv_data$class <- row.names(iv_data)
   iv_data$variable <- x
   iv_data <- iv_data[c(4,3,1,2)]
-  total_1 <- ifelse(is.numeric(df[, y]), sum(df[, y]), sum(as.integer(df[, y])-1))
-  total_0 <- nrow(df) - total_1
   
   #if(any(iv_data$outcome_0 == 0)) {
   #  warning("Some group for outcome 0 has zero count. This will result in -Inf or Inf WOE.")
