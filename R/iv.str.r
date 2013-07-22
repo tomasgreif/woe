@@ -32,10 +32,11 @@ iv.str <- function(df,x,y,verbose=FALSE) {
   if (is.factor(df[,y]) && all(levels(df[,y])[order(levels(df[,y]))]==c("bad","good"))) {
     if (verbose) cat("Assuming good = level 'good' and bad = level 'bad' \n")
     total_1 <- sum(df[,y]=="bad")
-  } else if (is.factor(df[,y])) {
+    } else if (is.factor(df[,y])) {
     if (verbose) cat("Factor: Assuming bad = level 2 and good = level 1 \n")
     total_1 <- sum(as.integer(df[, y])-1)
-  } else {
+
+    } else {
     if (verbose) cat("Numeric: Assuming bad = 1 and good = 0 \n")
     total_1 <-sum(df[, y])
 
@@ -43,11 +44,16 @@ iv.str <- function(df,x,y,verbose=FALSE) {
 
   total_0 <- nrow(df) - total_1      
   iv_data <- data.frame(unclass(table(df[, x],df[, y])))
+  
+  if (all(names(iv_data)==c("bad","good"))) {
+    iv_data <- iv_data[,c(2,1)]
+  }
+  
   names(iv_data) <- c("outcome_0","outcome_1")
   iv_data$class <- row.names(iv_data)
   iv_data$variable <- x
   iv_data <- iv_data[c(4,3,1,2)]
-  
+
   #if(any(iv_data$outcome_0 == 0)) {
   #  warning("Some group for outcome 0 has zero count. This will result in -Inf or Inf WOE.")
   #} else if (any(iv_data$outcome_1 == 0)) {
