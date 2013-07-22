@@ -26,7 +26,7 @@ iv.str <- function(df,x,y,verbose=FALSE) {
     if(verbose) paste(cat(unique(df[,y])),"\n")
     stop("Not a binary outcome")
     }
-  if (!(all(sort(unique(df[, y])) == c(0,1)) || all(sort(unique(as.integer(df[, y])) == c(1,2))))) {
+  if (!(all(sort(unique(df[, y])) == c(0,1)) || all(sort(unique(as.integer(df[, y]))) == c(1,2)))) {
     ifelse(is.numeric(df[, y]), stop("Outcome not encoded as 0 and 1."), 
            stop("Outcome not encoded as 1 and 2."))
   }
