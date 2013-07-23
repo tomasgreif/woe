@@ -10,11 +10,17 @@
 #' @examples
 #' iv.num(german_data,"duration","gb")
 #' iv.num(german_data,"age","gb")
+#' iv.num(german_data,"age","gb")
+#' iv.num(german_data,"duration","gb",rcontrol=rpart.control(cp=.01,minbucket=100))
 
-iv.num <- function(df,x,y,verbose=FALSE) {
+iv.num <- function(df,x,y,verbose=FALSE,rcontrol=NULL) {
 
   if(verbose) cat("  Building rpart model",sep="\n")
-  model   <- rpart(data=df,formula=as.integer(df[,y])~df[,x],control=rpart.control(cp=0.001,minbucket=nrow(df)/10))
+  #rcontrol <- ifelse(is.null(rcontrol),rpart.control(cp=0.001,minbucket=nrow(df)/10),rcontrol)
+  if(is.null(rcontrol)) {
+    rcontrol <- rpart.control(cp=0.001,minbucket=nrow(df)/10)
+  }
+  model   <- rpart(data=df,formula=as.integer(df[,y])~df[,x],control=rcontrol)
   if(verbose) cat("  Model finished",sep="\n")
   model_where <- data.frame(node_id=model$where,obs_id=as.numeric(names(model$where)),stringsAsFactors=F) # str(model_where)
   model_frame <- data.frame(model$frame,tree_node=rownames(model$frame),node_id=row(model$frame["var"]))

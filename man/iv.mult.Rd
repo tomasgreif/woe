@@ -3,7 +3,7 @@
 \title{Calculate Information Value for defined columns in data frame}
 \usage{
   iv.mult(df, y, summary = FALSE, vars = NULL,
-    verbose = FALSE)
+    verbose = FALSE, rcontrol = NULL)
 }
 \arguments{
   \item{df}{data frame with at least two columns}
@@ -36,5 +36,7 @@ iv.mult(german_data,"gb",TRUE)
 iv.mult(german_data,"gb",TRUE,c("ca_status","housing","job","duration")) # str(german_data)
 iv.mult(german_data,"gb",vars=c("ca_status","housing","job","duration"))
 iv.mult(german_data,"gb",summary=TRUE, verbose=TRUE)
+iv.mult(german_data,"gb",vars=c("duration","age"),rcontrol=rpart.control(cp=.001,minbucket=10))
+iv.mult(german_data,"gb",summary=TRUE,rcontrol=rpart.control(cp=.001,minbucket=50))
 }
 

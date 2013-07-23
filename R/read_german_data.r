@@ -20,11 +20,12 @@ german_data$ca_status <- factor(german_data$ca_status, levels=c("A11","A12","A13
 # Credit history
 german_data$credit_history <- factor(german_data$credit_history, levels=c("A30","A31","A32","A33","A34"),
                                       labels = c(
-                                          "no credits taken/all credits paid back duly",
-                                          "all credits at this bank paid back duly",
-                                          "existing credits paid back duly till now",
-                                          "delay in paying off in the past",
-                                          "critical account/other credits existing (not at this bank)"))
+                                          "no credits", #"no credits taken/all credits paid back duly",
+                                          "paid off",   #"all credits at this bank paid back duly",
+                                          "all paid",   #"existing credits paid back duly till now",
+                                          "delay",      #"delay in paying off in the past",
+                                          "critical"   #"critical account/other credits existing (not at this bank)"))
+                                      ))
 # Purpose
 german_data$purpose <- factor(german_data$purpose, levels=c("A40","A41","A42","A43","A44","A45","A46",
                                                             # "A47",

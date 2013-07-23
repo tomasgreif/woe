@@ -17,8 +17,10 @@
 #' iv.mult(german_data,"gb",TRUE,c("ca_status","housing","job","duration")) # str(german_data)
 #' iv.mult(german_data,"gb",vars=c("ca_status","housing","job","duration"))
 #' iv.mult(german_data,"gb",summary=TRUE, verbose=TRUE)
+#' iv.mult(german_data,"gb",vars=c("duration","age"),rcontrol=rpart.control(cp=.001,minbucket=10))
+#' iv.mult(german_data,"gb",summary=TRUE,rcontrol=rpart.control(cp=.001,minbucket=50))
 
-iv.mult <- function(df,y,summary=FALSE,vars=NULL,verbose=FALSE) {
+iv.mult <- function(df,y,summary=FALSE,vars=NULL,verbose=FALSE,rcontrol=NULL) {
   if(verbose) {
     cat(paste("Started processing of data frame:", deparse(substitute(df)),"\n"))
   }
@@ -30,7 +32,7 @@ iv.mult <- function(df,y,summary=FALSE,vars=NULL,verbose=FALSE) {
   ivlist <- lapply(vars, function (x) {
       if(is.numeric(df[,x])) {
         if (verbose) cat(paste("Calling iv.num for variable:", x, "\n"))
-        iv.num(df,x,y,verbose=verbose)
+        iv.num(df,x,y,verbose=verbose,rcontrol=rcontrol)
       } else {
         if (verbose) cat(paste("Calling iv.str for variable:", x, "\n"))
         iv.str(df,x,y,verbose=verbose)  

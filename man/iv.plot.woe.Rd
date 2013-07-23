@@ -13,6 +13,6 @@
 }
 \examples{
 iv.plot.woe(iv.mult(german_data,"gb"))
-iv.plot.woe(iv.mult(german_data,"gb",vars=c("ca_status","housing","job","duration"),summary=FALSE))
+iv.plot.woe(iv.mult(german_data,"gb",vars=c("ca_status","housing","age","duration"),summary=FALSE))
 }
 
