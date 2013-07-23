@@ -25,3 +25,4 @@ Collate:
     'iv.gen.data.r'
     'iv.plot.woe.r'
     'iv.replace.woe.R'
+    'read_german_data.r'

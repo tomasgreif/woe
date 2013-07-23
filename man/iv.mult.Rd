@@ -31,10 +31,10 @@
   WoE (Weight of Evidence) is defined as:
 }
 \examples{
-iv.mult(german_data,"gbbin")
-iv.mult(german_data,"gbbin",TRUE)
-iv.mult(german_data,"gbbin",TRUE,c("ca_status","housing","job","mob")) # str(german_data)
-iv.mult(german_data,"gbbin",vars=c("ca_status","housing","job","mob","gb"))
-iv.mult(german_data,"gbbin",summary=TRUE, verbose=TRUE)
+iv.mult(german_data,"gb")
+iv.mult(german_data,"gb",TRUE)
+iv.mult(german_data,"gb",TRUE,c("ca_status","housing","job","duration")) # str(german_data)
+iv.mult(german_data,"gb",vars=c("ca_status","housing","job","duration"))
+iv.mult(german_data,"gb",summary=TRUE, verbose=TRUE)
 }
 

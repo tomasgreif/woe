@@ -25,7 +25,7 @@
   or factor columns of data frame.
 }
 \examples{
-iv.str(german_data,"purpose","gbbin")
-iv.str(german_data,"savings","gbbin")
+iv.str(german_data,"purpose","gb")
+iv.str(german_data,"savings","gb")
 }
 

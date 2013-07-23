@@ -12,7 +12,7 @@
   Plots calculated information values
 }
 \examples{
-iv.plot.summary(iv.mult(german_data,"gbbin",TRUE))
-iv.plot.summary(iv.mult(german_data,"gbbin",vars=c("ca_status","housing","job","mob"),summary=TRUE))
+iv.plot.summary(iv.mult(german_data,"gb",TRUE))
+iv.plot.summary(iv.mult(german_data,"gb",vars=c("ca_status","housing","job","duration"),summary=TRUE))
 }
 

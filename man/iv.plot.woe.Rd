@@ -12,7 +12,7 @@
   Plots calculated WoE for every variable
 }
 \examples{
-iv.plot.woe(iv.mult(german_data,"gbbin"))
-iv.plot.woe(iv.mult(german_data,"gbbin",vars=c("ca_status","housing","job","mob"),summary=FALSE))
+iv.plot.woe(iv.mult(german_data,"gb"))
+iv.plot.woe(iv.mult(german_data,"gb",vars=c("ca_status","housing","job","duration"),summary=FALSE))
 }
 

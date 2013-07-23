@@ -7,7 +7,7 @@
 #' @param verbose Prints additional details when TRUE. Useful mainly for debugging.
 #' @export
 #' @examples
-#' outiv <- iv.mult(german_data,"gbbin",vars=c("ca_status","housing","mob"))
+#' outiv <- iv.mult(german_data,"gb",vars=c("ca_status","housing","duration"))
 #' x <- iv.replace.woe(german_data,outiv)
 #' str(x)
 #' outiv <- iv.mult(german_data,"gb")

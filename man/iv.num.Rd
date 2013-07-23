@@ -20,7 +20,7 @@
   vectors. This is done using decision tree.
 }
 \examples{
-iv.num(german_data,"mob","gbbin")
-iv.num(german_data,"age","gbbin")
+iv.num(german_data,"duration","gb")
+iv.num(german_data,"age","gb")
 }
 
