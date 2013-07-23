@@ -8,8 +8,8 @@
 #' @param verbose Prints additional details when TRUE. Useful mainly for debugging. 
 #' @export
 #' @examples
-#' iv.num(german_data,"mob","gbbin")
-#' iv.num(german_data,"age","gbbin")
+#' iv.num(german_data,"duration","gb")
+#' iv.num(german_data,"age","gb")
 
 iv.num <- function(df,x,y,verbose=FALSE) {
 

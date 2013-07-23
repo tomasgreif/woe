@@ -5,8 +5,8 @@
 #' @param iv WoE data for variables - output from iv.mult with summary=FALSE (false is default for iv.mult)
 #' @export
 #' @examples
-#' iv.plot.woe(iv.mult(german_data,"gbbin"))
-#' iv.plot.woe(iv.mult(german_data,"gbbin",vars=c("ca_status","housing","job","mob"),summary=FALSE))
+#' iv.plot.woe(iv.mult(german_data,"gb"))
+#' iv.plot.woe(iv.mult(german_data,"gb",vars=c("ca_status","housing","job","duration"),summary=FALSE))
 
 iv.plot.woe <- function(iv) {
   x <- rbind.fill(iv)

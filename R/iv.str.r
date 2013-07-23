@@ -9,8 +9,8 @@
 #' @param verbose Prints additional details when TRUE. Useful mainly for debugging.
 #' @export
 #' @examples
-#' iv.str(german_data,"purpose","gbbin")
-#' iv.str(german_data,"savings","gbbin")
+#' iv.str(german_data,"purpose","gb")
+#' iv.str(german_data,"savings","gb")
 
 iv.str <- function(df,x,y,verbose=FALSE) {
   if (!(class(df)=="data.frame")) {
@@ -65,6 +65,7 @@ iv.str <- function(df,x,y,verbose=FALSE) {
   iv_data$odds <- iv_data$pct_0 / iv_data$pct_1
   iv_data$woe <- log(iv_data$odds)
   iv_data$miv <- (iv_data$pct_0 - iv_data$pct_1) * iv_data$woe
+  rownames(iv_data) <- NULL
   iv_data
 }
 

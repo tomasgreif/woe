@@ -21,7 +21,7 @@
 outiv <- iv.mult(german_data,"gbbin",vars=c("ca_status","housing","mob"))
 x <- iv.replace.woe(german_data,outiv)
 str(x)
-outiv <- iv.mult(german_data,"gbbin")
+outiv <- iv.mult(german_data,"gb")
 x <- iv.replace.woe(german_data,outiv)
 str(x)
 }

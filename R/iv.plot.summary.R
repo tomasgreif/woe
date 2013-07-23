@@ -5,8 +5,8 @@
 #' @param iv Information values summary for variables - output from iv.mult with summary=T
 #' @export
 #' @examples
-#' iv.plot.summary(iv.mult(german_data,"gbbin",TRUE))
-#' iv.plot.summary(iv.mult(german_data,"gbbin",vars=c("ca_status","housing","job","mob"),summary=TRUE))
+#' iv.plot.summary(iv.mult(german_data,"gb",TRUE))
+#' iv.plot.summary(iv.mult(german_data,"gb",vars=c("ca_status","housing","job","duration"),summary=TRUE))
 
 iv.plot.summary <- function(iv) {
 
