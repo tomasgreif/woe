@@ -12,10 +12,11 @@
   Information Value should be calculated}
 
   \item{y}{column (integer) with binary outcome. y has to
-  be a column in df data frame. y has to be numeric
-  (integer or double) with values 0 and 1. It is
-  recommended that 1 is used for predicted event and 0
-  otherwise.}
+  be a column in df data frame. It is suggested that y is
+  factor with two levels "bad" and "good" If there are no
+  levels good/bad than the following assumptions are
+  applied - if y is integer, than 0=good and 1=bad. If y is
+  factor than level 2 is assumed to mean bad and 1 good.}
 
   \item{verbose}{Prints additional details when TRUE.
   Useful mainly for debugging.}
