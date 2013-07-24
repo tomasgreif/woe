@@ -5,7 +5,7 @@
 #' 
 #' \itemize{
 #'   \item ca_status
-#'   \item mob
+#'   \item duration
 #'   \item credit_history
 #'   \item purpose
 #'   \item credit_amount

@@ -2,7 +2,7 @@
 #'
 #' Plots calculated information values
 #'
-#' @param iv Information values summary for variables - output from iv.mult with summary=T
+#' @param iv Information values summary for variables - output from \code{\link{iv.mult}} with \code{summary=TRUE}
 #' @export
 #' @examples
 #' iv.plot.summary(iv.mult(german_data,"gb",TRUE))

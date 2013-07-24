@@ -6,7 +6,8 @@
 }
 \arguments{
   \item{iv}{Information values summary for variables -
-  output from iv.mult with summary=T}
+  output from \code{\link{iv.mult}} with
+  \code{summary=TRUE}}
 }
 \description{
   Plots calculated information values

@@ -11,10 +11,10 @@
   attributes as good or bad credit risks.
 }
 \details{
-  \itemize{ \item ca_status \item mob \item credit_history
-  \item purpose \item credit_amount \item savings \item
-  present_employment_since \item status_sex \item
-  installment_rate_income \item other_debtors \item
+  \itemize{ \item ca_status \item duration \item
+  credit_history \item purpose \item credit_amount \item
+  savings \item present_employment_since \item status_sex
+  \item installment_rate_income \item other_debtors \item
   present_residence_since \item property \item age \item
   other_installment \item housing \item existing_credits
   \item job \item liable_maintenance_people \item telephone

@@ -19,6 +19,10 @@
 
   \item{verbose}{Prints additional details when TRUE.
   Useful mainly for debugging.}
+
+  \item{rcontrol}{Additional parameters used for rpart tree
+  generation. Use \code{?rpart.control()} to get more
+  details.}
 }
 \description{
   This function calculates information value for numeric
