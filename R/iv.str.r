@@ -54,17 +54,19 @@ iv.str <- function(df,x,y,verbose=FALSE) {
   iv_data$variable <- x
   iv_data <- iv_data[c(4,3,1,2)]
 
-  #if(any(iv_data$outcome_0 == 0)) {
-  #  warning("Some group for outcome 0 has zero count. This will result in -Inf or Inf WOE.")
-  #} else if (any(iv_data$outcome_1 == 0)) {
-  #  warning("Some group for outcome 1 has zero count. This will result in -Inf or Inf WOE.")
-  #}
-  
   iv_data$pct_1 <- iv_data$outcome_1 / total_1
   iv_data$pct_0 <- iv_data$outcome_0 / total_0
   iv_data$odds <- iv_data$pct_0 / iv_data$pct_1
   iv_data$woe <- log(iv_data$odds)
   iv_data$miv <- (iv_data$pct_0 - iv_data$pct_1) * iv_data$woe
+
+  if(any(iv_data$outcome_0 == 0) || any(iv_data$outcome_1 == 0)) {
+    warning("Some group for outcome 0 has zero count. This will result in -Inf or Inf WOE. Replacing - ODDS=1, WoE=0, MIV=0. \n The bin is either too small or suspiciously predictive. \n You should fix this before running any model. It does not make any sense to keep WoE = 0 for such bin.")
+      iv_data$woe <- ifelse(is.infinite(iv_data$woe),0,iv_data$woe)
+      iv_data$miv <- ifelse(is.infinite(iv_data$miv),0,iv_data$miv)
+      iv_data$odds <- ifelse(is.infinite(iv_data$odds),1,iv_data$odds)
+  }
+  
   rownames(iv_data) <- NULL
   iv_data
 }
