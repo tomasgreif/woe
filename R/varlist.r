@@ -6,6 +6,7 @@
 #' @param type One of "numeric", "factor", "character" or any combination as vector
 #' @param pattern Regexp pattern used to filter variables
 #' @param exclude List of variables to be excluded
+#' @export
 #' @examples
 #' # All variable starting with cred
 #' varlist(german_data,pattern="^cred")

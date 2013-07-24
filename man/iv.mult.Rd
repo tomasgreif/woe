@@ -24,6 +24,10 @@
 
   \item{verbose}{Prints additional details when TRUE.
   Useful mainly for debugging.}
+
+  \item{rcontrol}{Additional parameters used for rpart tree
+  generation. Use \code{?rpart.control()} to get more
+  details.}
 }
 \description{
   Calculates information value for defined columns in given

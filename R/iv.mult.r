@@ -10,6 +10,7 @@
 #' information value, starting with highest value.
 #' @param vars List of variables. If not specified, all character variables will be used
 #' @param verbose Prints additional details when TRUE. Useful mainly for debugging.
+#' @param rcontrol Additional parameters used for rpart tree generation. Use \code{?rpart.control()} to get more details.
 #' @export
 #' @examples
 #' iv.mult(german_data,"gb")
