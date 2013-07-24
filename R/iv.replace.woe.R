@@ -1,6 +1,6 @@
-#' Replace values with information value
+#' Replace raw variables with Weight of Evidence
 #'
-#' Calculates information value for all character vectors in given data frame
+#' Replaces variables in data frame with Weight of Evidence. This will add new columns with "_woe" suffix to specified data frame.
 #'
 #' @param df data frame with original data
 #' @param iv list of information values for variables - output from iv.str.mult

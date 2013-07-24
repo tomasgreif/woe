@@ -1,6 +1,6 @@
 \name{iv.replace.woe}
 \alias{iv.replace.woe}
-\title{Replace values with information value}
+\title{Replace raw variables with Weight of Evidence}
 \usage{
   iv.replace.woe(df, iv, verbose = FALSE)
 }
@@ -14,8 +14,9 @@
   Useful mainly for debugging.}
 }
 \description{
-  Calculates information value for all character vectors in
-  given data frame
+  Replaces variables in data frame with Weight of Evidence.
+  This will add new columns with "_woe" suffix to specified
+  data frame.
 }
 \examples{
 outiv <- iv.mult(german_data,"gb",vars=c("ca_status","housing","duration"))
