@@ -10,17 +10,23 @@
 #' @examples
 #' # All variable starting with cred
 #' varlist(german_data,pattern="^cred")
+#' 
 #' # All numeric variable
 #' varlist(german_data,type="numeric")
+#' 
 #' # All factor variable except variable gb and variables starting with c
 #' varlist(german_data,type="factor",exclude=c("gb",varlist(german_data,pattern="^c")))
+#' 
 #' # Same as previous, only using pattern instead of c()
 #' varlist(german_data,type="factor",exclude=varlist(german_data,pattern="^c|gb"))
+#' 
 #' # Everything but factors
 #' varlist(german_data,exclude=varlist(german_data,"factor"))
+#' 
 #' # Use sapply to apply function for variables
 #' sapply(german_data[,varlist(german_data,type="numeric",pattern="credit")], summary)
-#' sapply(german_data[,varlist(german_data,type="numeric",pattern="credit")], function (x) length(unique(x)))
+#' sapply(german_data[,varlist(german_data,type="numeric",pattern="credit")], 
+#'    function (x) length(unique(x)))
 
 
 varlist <- function (df=NULL,type=c("numeric","factor","character"), pattern="", exclude=NULL) {
