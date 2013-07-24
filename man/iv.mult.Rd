@@ -8,7 +8,12 @@
 \arguments{
   \item{df}{data frame with at least two columns}
 
-  \item{y}{column (integer) with binary outcome}
+  \item{y}{column (integer or factor) with binary outcome.
+  It is suggested that y is factor with two levels "bad"
+  and "good" If there are no levels good/bad than the
+  following assumptions are applied - if y is integer, than
+  0=good and 1=bad. If y is factor than level 2 is assumed
+  to mean bad and 1 good.}
 
   \item{summary}{Only total information value for variable
   is returned when summary is TRUE. Output is sorted by

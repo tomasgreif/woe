@@ -5,7 +5,7 @@
 #' IV is defined as:
 #' WoE (Weight of Evidence) is defined as:
 #' @param df data frame with at least two columns
-#' @param y column (integer) with binary outcome
+#' @param y column (integer or factor) with binary outcome. It is suggested that y is factor with two levels "bad" and "good" If there are no levels good/bad than the following assumptions are applied - if y is integer, than 0=good and 1=bad. If y is factor than level 2 is assumed to mean bad and 1 good.
 #' @param summary Only total information value for variable is returned when summary is TRUE. Output is sorted by
 #' information value, starting with highest value.
 #' @param vars List of variables. If not specified, all character variables will be used
