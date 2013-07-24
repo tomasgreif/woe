@@ -7,15 +7,14 @@
     pattern = "", exclude = NULL)
 }
 \arguments{
-  \item{iv}{Information values summary for variables -
-  output from iv.mult with summary=T}
+  \item{df}{Data frame to be used}
 
   \item{type}{One of "numeric", "factor", "character" or
   any combination as vector}
 
-  \item{pattern}{regexp pattern used to filter variables}
+  \item{pattern}{Regexp pattern used to filter variables}
 
-  \item{exclude}{list of variables to be excluded}
+  \item{exclude}{List of variables to be excluded}
 }
 \description{
   Get subset of variables in data frame based on type,

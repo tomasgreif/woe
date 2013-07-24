@@ -2,10 +2,10 @@
 #'
 #' Get subset of variables in data frame based on type, regexp pattern and specified exclusions.
 #'
-#' @param iv Information values summary for variables - output from iv.mult with summary=T
+#' @param df Data frame to be used
 #' @param type One of "numeric", "factor", "character" or any combination as vector
-#' @param pattern regexp pattern used to filter variables
-#' @param exclude list of variables to be excluded
+#' @param pattern Regexp pattern used to filter variables
+#' @param exclude List of variables to be excluded
 #' @examples
 #' # All variable starting with cred
 #' varlist(german_data,pattern="^cred")

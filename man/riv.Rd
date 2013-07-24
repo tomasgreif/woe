@@ -4,6 +4,7 @@
 \alias{riv-package}
 \title{riv}
 \description{
-  riv
+  Calculate Information Value and Weight of Evidence for
+  variables in data frame.
 }
 
