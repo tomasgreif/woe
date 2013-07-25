@@ -6,4 +6,10 @@
 #' \deqn{IV = \Sigma_{i=1}^{n}(\ln(\frac{\%good_i}{\%bad_i})*(\%good_i - \%bad_i))}
 #' @docType package
 #' @name woe
+#' @import ggplot2 
+#' @importFrom plyr rbind.fill
+#' @importFrom RColorBrewer brewer.pal
+#' @import rpart
+#' @importFrom rpart rpart.control
+#' @importFrom sqldf sqldf
 NULL
