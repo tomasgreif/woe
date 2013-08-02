@@ -47,26 +47,29 @@ iv.str <- function(df,x,y,verbose=FALSE) {
   if (all(names(iv_data)==c("bad","good"))) {
     iv_data <- iv_data[,c(2,1)]
   }
-  
+    
   names(iv_data) <- c("outcome_0","outcome_1")
-  iv_data$class <- row.names(iv_data)
-  iv_data$variable <- x
-  iv_data <- iv_data[c(4,3,1,2)]
+  iv_data <-  within(iv_data, {
+                class <- row.names(iv_data)
+                variable <- x
+                pct_0 <- outcome_0 / total_0
+                pct_1 <- outcome_1 / total_1
+                odds <-  pct_0 / pct_1
+                woe <- log(odds)
+                miv <- (pct_0 - pct_1) * woe    
+  })
 
-  iv_data$pct_1 <- iv_data$outcome_1 / total_1
-  iv_data$pct_0 <- iv_data$outcome_0 / total_0
-  iv_data$odds <- iv_data$pct_0 / iv_data$pct_1
-  iv_data$woe <- log(iv_data$odds)
-  iv_data$miv <- (iv_data$pct_0 - iv_data$pct_1) * iv_data$woe
+  iv_data <- iv_data[c("variable","class","outcome_0","outcome_1","pct_0","pct_1","odds","woe","miv")]
 
-  if(any(iv_data$outcome_0 == 0) || any(iv_data$outcome_1 == 0)) {
+  if(any(iv_data$outcome_0 == 0) | any(iv_data$outcome_1 == 0)) {
     warning("Some group for outcome 0 has zero count. This will result in -Inf or Inf WOE. Replacing - ODDS=1, WoE=0, MIV=0. \n The bin is either too small or suspiciously predictive. \n You should fix this before running any model. It does not make any sense to keep WoE = 0 for such bin.")
       iv_data$woe <- ifelse(is.infinite(iv_data$woe),0,iv_data$woe)
       iv_data$miv <- ifelse(is.infinite(iv_data$miv),0,iv_data$miv)
-      iv_data$odds <- ifelse(is.infinite(iv_data$odds),1,iv_data$odds)
+      iv_data$odds <-ifelse(is.infinite(iv_data$odds),1,iv_data$odds)
   }
   
   rownames(iv_data) <- NULL
+  cat (paste("Information Value",round(sum(iv_data$miv),2),"\n"))
   iv_data
 }
 

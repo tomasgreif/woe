@@ -10,6 +10,5 @@
 #' @importFrom plyr rbind.fill
 #' @importFrom RColorBrewer brewer.pal
 #' @import rpart
-#' @importFrom rpart rpart.control
 #' @importFrom sqldf sqldf
 NULL
