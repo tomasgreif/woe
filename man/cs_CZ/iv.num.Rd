@@ -1,6 +1,6 @@
 \name{iv.num}
 \alias{iv.num}
-\title{Calculate Information Value for numeric (double/integer) vectors}
+\title{Testovací česká nápověda pro iv.num}
 \usage{
   iv.num(df, x, y, verbose = FALSE, rcontrol = NULL)
 }

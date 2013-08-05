@@ -1,6 +1,6 @@
 \name{iv.mult}
 \alias{iv.mult}
-\title{Calculate Information Value for defined columns in data frame}
+\title{Testovací česká nápověda pro IV mult.}
 \usage{
   iv.mult(df, y, summary = FALSE, vars = NULL,
     verbose = FALSE, rcontrol = NULL)
