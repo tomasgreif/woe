@@ -1,3 +1,4 @@
+\encoding{utf8}
 \name{dummy}
 \alias{dummy}
 \title{Příšerně žluťoučký kůň úpěl ďábelské ódy.}
