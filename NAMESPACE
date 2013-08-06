@@ -1,3 +1,4 @@
+export(dummy)
 export(iv.gen.data)
 export(iv.mult)
 export(iv.num)

@@ -30,3 +30,4 @@ Collate:
     'read_german_data.r'
     'varlist.r'
     'woe-package.r'
+    'dummy.r'
