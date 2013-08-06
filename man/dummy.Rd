@@ -1,4 +1,4 @@
-\encoding{latin-2}
+\encoding{latin2}
 \name{dummy}
 \alias{dummy}
 \title{Příšerně žluťoučký kůň úpěl ďábelské ódy.}
