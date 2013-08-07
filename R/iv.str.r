@@ -41,6 +41,8 @@ iv.str <- function(df,x,y,verbose=FALSE) {
 
   }
 
+  outcome_0 <- outcome_1 <- NULL
+  
   total_0 <- nrow(df) - total_1      
   iv_data <- data.frame(unclass(table(df[, x],df[, y])))
   

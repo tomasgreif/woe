@@ -12,7 +12,6 @@
 #' iv.num(german_data,"duration","gb")
 #' iv.num(german_data,"age","gb")
 #' iv.num(german_data,"age","gb")
-#' iv.num(german_data,"duration","gb",rcontrol=rpart.control(cp=.01,minbucket=100))
 
 iv.num <- function(df,x,y,verbose=FALSE,rcontrol=NULL) {
 

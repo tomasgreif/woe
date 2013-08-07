@@ -18,8 +18,6 @@
 #' iv.mult(german_data,"gb",TRUE,c("ca_status","housing","job","duration")) # str(german_data)
 #' iv.mult(german_data,"gb",vars=c("ca_status","housing","job","duration"))
 #' iv.mult(german_data,"gb",summary=TRUE, verbose=TRUE)
-#' iv.mult(german_data,"gb",vars=c("duration","age"),rcontrol=rpart.control(cp=.001,minbucket=10))
-#' iv.mult(german_data,"gb",summary=TRUE,rcontrol=rpart.control(cp=.001,minbucket=50))
 #' # Use varlist() function to get all numeric variables
 #' iv.mult(german_data,y="gb",vars=varlist(german_data,"numeric"))
 
