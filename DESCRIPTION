@@ -6,6 +6,7 @@ Description: Calculate WOE (Weight of Evidence) and IV (Information Value) for
 Version: 0.3
 Author: Tomas Greif
 Maintainer: Tomas Greif <greif.tomas@gmail.com>
+Encoding: ISO-8859-2
 Depends:
     R (>= 3.0.1),
     rpart
