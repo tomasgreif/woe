@@ -41,7 +41,7 @@ iv.str <- function(df,x,y,verbose=FALSE) {
 
   }
 
-  outcome_0 <- outcome_1 <- NULL
+  outcome_0 <- outcome_1 <- NULL # This is needed to avoid NOTES about not visible binding from R CMD check
   
   total_0 <- nrow(df) - total_1      
   iv_data <- data.frame(unclass(table(df[, x],df[, y])))
@@ -49,7 +49,8 @@ iv.str <- function(df,x,y,verbose=FALSE) {
   if (all(names(iv_data)==c("bad","good"))) {
     iv_data <- iv_data[,c(2,1)]
   }
-    
+
+
   names(iv_data) <- c("outcome_0","outcome_1")
   iv_data <-  within(iv_data, {
                 class <- row.names(iv_data)
@@ -61,6 +62,10 @@ iv.str <- function(df,x,y,verbose=FALSE) {
                 miv <- (pct_0 - pct_1) * woe    
   })
 
+  if(is.factor(df[,x])) {
+    iv_data$class <- factor(iv_data$class,levels=levels(df[,x]))
+  }  
+  
   iv_data <- iv_data[c("variable","class","outcome_0","outcome_1","pct_0","pct_1","odds","woe","miv")]
 
   if(any(iv_data$outcome_0 == 0) | any(iv_data$outcome_1 == 0)) {
