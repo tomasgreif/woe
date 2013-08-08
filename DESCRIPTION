@@ -29,3 +29,4 @@ Collate:
     'read_german_data.r'
     'varlist.r'
     'woe-package.r'
+    'iv.binning.simple.r'

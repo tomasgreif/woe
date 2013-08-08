@@ -1,3 +1,4 @@
+export(iv.binning.simple)
 export(iv.gen.data)
 export(iv.mult)
 export(iv.num)
